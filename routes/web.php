@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BoardController;
 use App\Http\Controllers\BoardUserController;
 use App\Http\Controllers\TaskController;
+use App\Http\Controllers\CommentController;
 use App\Models\Board;
 
 /*
@@ -26,7 +27,7 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 })->name('dashboard');
 
 
-// Route::get('/boards', [BoardController::class, 'index'])->middleware('auth')->name('boards.index');
+//Route::get('/boards', [BoardController::class, 'index'])->middleware('auth')->name('boards.index');
 // Route::get('/boards/create', [BoardController::class, 'create'])->middleware('auth')->name('boards.create');
 // Route::get('/boards/{board}', [BoardController::class, 'show'])->middleware('auth')->name('boards.show');
 // Route::post('/boards', [BoardController::class, 'store'])->middleware('auth')->name('boards.store');
@@ -37,6 +38,8 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 Route::resource('boards', BoardController::class)->middleware('auth');
 
 Route::resource('boards/{board}/tasks', TaskController::class)->middleware('auth');
+
+Route::resource('boards/{board}/tasks/{task}/comments', CommentController::class)->middleware('auth');
 // Route::get('boards/{board}/tasks/create', [TaskController::class, 'createFromBoard'])->middleware('auth')->name('boards.tasks.create');
 // Route::post('boards/{board}/tasks', [TaskController::class, 'storeFromBoard'])->middleware('auth')->name('boards.tasks.store');
 

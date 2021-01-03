@@ -1,3 +1,44 @@
+# Fonctionnalités réalisées
+
+## En tant qu'utilisateur non connecté, je peux : 
+    - accéder à la page d'accueil
+    - me connecter si je suis enregistré
+    - m'enrigistrer si je ne le suis pas déjà
+
+## En tant qu'utilisateur connecté, je peux : 
+    - modifier mon profil
+    - me désinscrire
+    - créer un board  et j'en serais alors propriétaire (et plus tard automatiquement participant)
+    - aller sur les boards dont je suis participant
+  
+## En tant que propriétaire d'un board, je peux : 
+    - inviter des utilisateurs, ils seront participants du board
+    - faire à minima toutes les actions que peuvent faire les utilisateurs de mon board : consulter Détails
+    - faire à minima toutes les actions que peuvent faire les participants des tâches de mon board : consulter Détails
+    - supprimer le board
+    - supprimer un commentaire des tâches de mon board
+    - Faire toutes les actions d'un participant du board ou d'un utilisateur assigné à une tâche
+  
+## En tant que participant d'un board (invité par son propriétaire), je peux
+    - Créer une tâche 
+    - Éditer tous les champs d'une tâches (sauf le status)
+    - Commenter une tâche
+  
+## En tant qu'assigné à une tâche, je peux : 
+    - Changer son status
+    
+## En tant que propriétaire d'un commentaire : 
+    - Éditer le commentaire
+    - Supprimer le commentaire
+
+# Points de blocage rencontrés
+
+# Solutions mise en oeuvre
+
+# Fonctionnalités non réalisées
+    - Transfert de proriété
+    - CRUD pièces jointes (pas demandé)
+
 # Framework PHP
 
 Le framework étudié est Laravel, de la version 6 à 8. 

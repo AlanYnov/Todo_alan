@@ -1,5 +1,4 @@
 <style>
-
 body{
     font-family: Tahoma,Verdana,sans-serif;
     font-size: 0.9rem;
@@ -50,35 +49,29 @@ input{
     border: 0;
     border-bottom: 2px solid gray;
 }
-
 </style>
+
 @extends('layouts.main')
 
-@section('title', "Create a new board")
+@section('title', "Create a new comment")
 
 
 @section('content')
-
-    <h1>Ajouter un Board </h1>
+<h1>Ajouter un Commentaire </h1>
     <div class="trait"></div>
     <div>
-        <form action="/boards" method="POST">
+        <form action="{{route('comments.store', [$board, $task])}}" method="POST">
             @csrf
             <div class="entreeForm">
                 <div>
-                    <label for="title">Titre</label>
-                    <input id="title" type="text" name="title" class="@error('title') is-invalid @enderror" placeholder="Titre">
-
-                    @error('title')
-                        <div class="alert alert-danger">{{ $message }}</div>
-                    @enderror
-                </div>
-                <div>
-                    <label for="description">Description</label>
-                    <input type='textarea' name='description' id="description" placeholder="Description">
+                    <label for="text">Commentaire</label>
+                    <input type='textarea' name='text' id="text" >
+                @error('text')
+                    <div class="alert alert-danger">{{ $message }}</div>
+                @enderror
                 </div>
             </div>
-            <button class="addBoard" type="submit">Créer le Board</button>
+            <button class="addBoard" type="submit">Ajouter</button>
         </form>
 
     </div>

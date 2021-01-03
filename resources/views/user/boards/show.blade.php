@@ -7,7 +7,8 @@
     <h2>{{$board->title}}</h2>
     <p>{{$board->description}}</p>
     <div class="participants">
-        @foreach($board->users as $user) 
+        @foreach($board->users as $user)
+            <span>Liste des participants</span>
             <p>{{$user->name}}</p>
             <form action="{{route('boards.boarduser.destroy', $user->pivot)}}" method="POST">
                 @csrf
@@ -29,5 +30,5 @@
         @enderror
         <button type="submit">Ajouter</button>
     </form>
-
+    <a href="{{route('tasks.index', $board)}}">Tâches</a>
 @endsection

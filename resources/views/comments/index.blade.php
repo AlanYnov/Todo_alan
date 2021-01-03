@@ -1,14 +1,18 @@
 <style>
-
 body{
     font-family: Tahoma,Verdana,sans-serif;
     font-size: 0.9rem;
+}
+
+h1 >span{
+    font-weight:normal;
 }
 
 .trait{
     width: 100%;
     border: 1px solid grey;
 }
+
 .addBoard{
     width: 9%;
     background-color: #3479b6;
@@ -19,6 +23,7 @@ body{
     justify-content: center;
     align-items: center;
     padding: 10px 0px;
+    border: 0;
     border-radius: 10px;
     transition: all ease-out .5s;
 }
@@ -27,10 +32,6 @@ body{
     cursor: pointer;
     background-color: #4facff;
     transition: all ease-out .5s;
-}
-
-.addBoard i {
-    margin-right : 5px;
 }
 
 table{
@@ -48,7 +49,7 @@ td, th{
 
 th{
     padding: 2% 0;
-    font-size: 1.5rem;
+    font-size: 2rem;
 }
 
 tbody .rubrique td{
@@ -121,55 +122,41 @@ form button{
     cursor: pointer;
     transition: all ease-out .5s;
 }
-
-
-
 </style>
+
 @extends('layouts.main')
 
-@section('title', "User's board")
+@section('title', "Task's comments")
 
 
 @section('content')
-    @if(count($boards) == 0)
-        <p>Vous n'avez aucun board</p>
-    @else
-    <h1>Boards </h1>
+<h1><span>Nom de la tâche : </span>{{$task->title}}</h1>
     <div class="trait"></div>
-    @endif
     <table>
     <thead>
         <tr>
-            <th colspan="4">Liste des Boards</th>
+            <th colspan="4">Liste des Commentaires</th>
         </tr>
     </thead>
-    <tbody>
+    <tody>
         <tr class="rubrique">   
-            <td>Titre</td>
+            <td>Commentaires</td>
             <td colspan="3">Actions</td>
         </tr>
-    @foreach ($boards as $board)
-        <tr>
-        <td>{{ $board->title }}</td>
-            @can('view', $board)
-            <td><a class="showButton" href="{{route('boards.show', $board)}}">Détails</a>
-            @endcan
-            @can('update', $board)
-            <a class="editButton" href="{{route('boards.edit', $board)}}">Éditer</a>
-            @endcan
-            @can('delete', $board)
-            <form action="{{route('boards.destroy', $board->id)}}" method='POST'>
+    @foreach ($task->comments as $comment)
+    <tr>
+        <td>{{ $comment->text }}</td>
+            <td><a class="showButton" href="{{route('comments.show', [$board, $task, $comment])}}">detail</a>
+            <a class="editButton" href="{{route('comments.edit', [$board, $task, $comment])}}">edit</a>
+            <form action="{{route('comments.destroy', [$board, $task, $comment])}}" method='POST'>
                 @method('DELETE')
                 @csrf
                 
-                <button class="deleteButton" type="submit">Delete</button>
+                <button type="submit">Delete</button>
             </form></td>
-            @endcan
-            </tr>
+    </tr>
     @endforeach
-    </tbody>
+        </tbody>
     </table>
-    @can('view', $board)
-        <a class="addBoard" href="{{route('boards.create')}}">Nouveau Board</a> 
-    @endcan
+    <a class="addBoard" href="{{route('comments.create', [$board, $task])}}">Ajouter commentaire</a>
 @endsection

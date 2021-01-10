@@ -43,9 +43,8 @@
             <div class="alert alert-danger">{{ $message }}</div>
             @enderror
             <br>
-            <button type="submit">Create</button>
+            <button type="submit">Edit</button>
         </form>
-
     </div>
     @if ($errors->any())
     <div class="alert alert-danger">

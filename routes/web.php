@@ -45,3 +45,6 @@ Route::resource('boards/{board}/tasks/{task}/comments', CommentController::class
 
 Route::post('boards/{board}/boarduser', [BoardUserController::class ,  'store'])->middleware('auth')->name('boards.boarduser.store');
 Route::delete('boarduser/{BoardUser}', [BoardUserController::class ,  'destroy'])->middleware('auth')->name('boards.boarduser.destroy');;
+
+Route::post('tasks/{task}/taskuser', [TaskUserController::class ,  'store'])->middleware('auth')->name('tasks.taskuser.store');
+Route::delete('taskuser/{TaskUser}', [TaskUserController::class ,  'destroy'])->middleware('auth')->name('tasks.taskuser.destroy');;

@@ -8,7 +8,7 @@
 ## En tant qu'utilisateur connecté, je peux : 
     - modifier mon profil
     - me désinscrire
-    - créer un board  et j'en serais alors propriétaire (et plus tard automatiquement participant)
+    - créer un board  et j'en serais alors propriétaire
     - aller sur les boards dont je suis participant
   
 ## En tant que propriétaire d'un board, je peux : 
@@ -32,8 +32,10 @@
     - Supprimer le commentaire
 
 # Points de blocage rencontrés
+    - Utilisation des routes
 
 # Solutions mise en oeuvre
+
 
 # Fonctionnalités non réalisées
     - Transfert de proriété

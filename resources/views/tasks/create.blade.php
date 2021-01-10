@@ -83,6 +83,14 @@ input{
                     <input type='date' name='due_date' id="due_date" >
                 </div>
                 <div>
+                    <label for='state'>Status</label>
+                    <select name='state'>
+                        <option value=todo>Todo</option>
+                        <option value=ongoing>On going</option>
+                        <option value=done>Done</option>
+                    </select>
+                </div>
+                <div>
                     <span>Catégorie</span>
                     <select name="category_id" id="category_id">
                         @foreach ($categories as $category)

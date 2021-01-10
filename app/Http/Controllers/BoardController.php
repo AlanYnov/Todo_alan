@@ -94,7 +94,7 @@ class BoardController extends Controller
         
         // On sélectionne maintenant tous les utilisateurs dont l'id n'appartient pas à la liste des ids des utilisateurs du board
         $usersNotInBoard = User::whereNotIn('id', $boardUsersId)->get(); 
-        return view("user.boards.show", ["board" => $board, 'users' => $usersNotInBoard]);
+        return view("user.boards.show", ["board" => $board, 'users' => $usersNotInBoard, 'owner' => Auth::user()]);
     }
 
     /**

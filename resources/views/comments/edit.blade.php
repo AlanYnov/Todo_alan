@@ -4,7 +4,6 @@
 
 
 @section('content')
-    <p>Add a board </p>
     <div>
         <form action="{{route('comments.update', [$board, $task, $comment])}}" method="POST">
             @csrf

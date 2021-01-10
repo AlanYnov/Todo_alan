@@ -12,6 +12,7 @@
     - aller sur les boards dont je suis participant
   
 ## En tant que propriétaire d'un board, je peux : 
+    - transférer la propriété du board
     - inviter des utilisateurs, ils seront participants du board
     - faire à minima toutes les actions que peuvent faire les utilisateurs de mon board : consulter Détails
     - faire à minima toutes les actions que peuvent faire les participants des tâches de mon board : consulter Détails
@@ -21,7 +22,7 @@
   
 ## En tant que participant d'un board (invité par son propriétaire), je peux
     - Créer une tâche 
-    - Éditer tous les champs d'une tâches (sauf le status)
+    - Éditer tous les champs d'une tâches
     - Commenter une tâche
   
 ## En tant qu'assigné à une tâche, je peux : 
@@ -35,11 +36,41 @@
     - Utilisation des routes
 
 # Solutions mise en oeuvre
-
+Consulter le travail déjà fait en classe ainsi que la documentation de Laravel
 
 # Fonctionnalités non réalisées
     - Transfert de proriété
     - CRUD pièces jointes (pas demandé)
+
+# Règles concernant les entités : 
+
+## Board :
+    - Listing des boards => utilisateur connecté
+    - Détails d'un board =>  participant du board
+    - Éditer un board => propriétaire du board
+    - Supprimer un board => propriétaire du board
+    - Créer un board => utilisateur connecté
+
+### Détails :
+    - Changer propriété => propriétaire du board
+    - Ajouter/Supprimer participant => propriétaire du board
+
+## Task :
+    - Listing des tâches => participant du board
+    - Détails d'une tâche =>  participant du board
+    - Éditer une tâche => participant à la tâche
+    - Supprimer une tâche => propriétaire du board
+    - Créer une tâche => participant du board
+
+### Détails :
+    - Ajouter/Supprimer participant => propriétaire du board
+
+## Commentaire :
+    - Listing des commentaires => participant du board
+    - Détails d'un commentaire =>  participant du board
+    - Éditer un commentaire => participant à la tâche
+    - Supprimer un commentaire => propriétaire du board
+    - Créer un commentaire => participant du board
 
 # Framework PHP
 

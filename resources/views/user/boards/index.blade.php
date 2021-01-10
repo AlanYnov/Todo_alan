@@ -169,7 +169,5 @@ form button{
     @endforeach
     </tbody>
     </table>
-    @can('create', $board)
-        <a class="addBoard" href="{{route('boards.create')}}">Nouveau Board</a>
-    @endcan
+    <a class="addBoard" href="{{route('boards.create')}}">Nouveau Board</a>
 @endsection

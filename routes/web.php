@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BoardController;
 use App\Http\Controllers\BoardUserController;
+use App\Http\Controllers\TaskUserController;
 use App\Http\Controllers\TaskController;
 use App\Http\Controllers\CommentController;
 use App\Models\Board;
